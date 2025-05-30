@@ -2,7 +2,7 @@
     <application
         android:label="Compendium"
         android:name="${applicationName}"
-        android:icon="@mipmap/icon.png">
+        android:icon="@mipmap/logo_crop">
         <activity
             android:name=".MainActivity"
             android:exported="true"

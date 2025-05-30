@@ -41,6 +41,7 @@ dependencies:
   jwt_decode: ^0.3.1
   http: ^1.4.0
   shared_preferences: ^2.5.3
+  flutter_launcher_icons: ^0.14.3
 
 dev_dependencies:
   flutter_test:
