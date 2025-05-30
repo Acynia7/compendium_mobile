@@ -34,15 +34,9 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.pushReplacementNamed(context, '/home', arguments: token);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Invalid email or password')),
+        const SnackBar(content: Text('Invalid credentials, please try again.')),
       );
     }
-  }
-
-  Future<void> _guestLogin() async {
-    // Ici, tu peux générer un token invité ou simplement naviguer sans token
-    await TokenService.saveToken('guest');
-    Navigator.pushReplacementNamed(context, '/home', arguments: 'guest');
   }
 
   @override
@@ -69,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'Login',
+                          'Se connecter',
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
@@ -120,21 +114,6 @@ class _LoginPageState extends State<LoginPage> {
                                       ),
                                       onPressed: _login,
                                       child: const Text('Se connecter'),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 12),
-                                  SizedBox(
-                                    width: double.infinity,
-                                    child: OutlinedButton(
-                                      style: OutlinedButton.styleFrom(
-                                        foregroundColor: colors.buttonColor,
-                                        side: BorderSide(color: colors.buttonColor),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(8),
-                                        ),
-                                      ),
-                                      onPressed: _guestLogin,
-                                      child: const Text('Continuer en tant qu\'invité'),
                                     ),
                                   ),
                                 ],

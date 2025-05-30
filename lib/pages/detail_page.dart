@@ -53,89 +53,91 @@ class _DetailPageState extends State<DetailPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: Container(
-                width: 160,
-                height: 160,
-                decoration: BoxDecoration(
-                  color: _colors.cardColor,
-                  shape: BoxShape.circle,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Container(
+                  width: 160,
+                  height: 160,
+                  decoration: BoxDecoration(
+                    color: _colors.cardColor,
+                    shape: BoxShape.circle,
+                  ),
+                  child: imageUrl != null
+                      ? ClipOval(
+                          child: Image.network(
+                            imageUrl,
+                            width: 180,
+                            height: 180,
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) =>
+                                const Icon(Icons.public, size: 100, color: Colors.grey),
+                          ),
+                        )
+                      : const Icon(Icons.public, size: 100, color: Colors.grey),
                 ),
-                child: imageUrl != null
-                    ? ClipOval(
-                        child: Image.network(
-                          imageUrl,
-                          width: 180,
-                          height: 180,
-                          fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) =>
-                              const Icon(Icons.public, size: 100, color: Colors.grey),
-                        ),
-                      )
-                    : const Icon(Icons.public, size: 100, color: Colors.grey),
               ),
-            ),
-            const SizedBox(height: 32),
-            Text(
-              widget.bodyData['name'] ?? 'Nom du corps céleste',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: _colors.textColor,
+              const SizedBox(height: 32),
+              Text(
+                widget.bodyData['name'] ?? 'Nom du corps céleste',
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: _colors.textColorWhite,
+                ),
               ),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              widget.bodyData['description'] ?? 'Description du corps céleste...',
-              style: TextStyle(
-                fontSize: 16,
-                color: _colors.textColor.withOpacity(0.8),
+              const SizedBox(height: 16),
+              Text(
+                widget.bodyData['description'] ?? 'Description du corps céleste...',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: _colors.textColorWhite.withOpacity(0.8),
+                ),
               ),
-            ),
-            const SizedBox(height: 24),
-            Text(
-              'Type : $typeName',
-              style: TextStyle(
-                fontSize: 16,
-                color: _colors.textColor,
+              const SizedBox(height: 24),
+              Text(
+                'Type : $typeName',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: _colors.textColorWhite.withOpacity(0.7),
+                ),
               ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Masse : ${widget.bodyData['mass'] ?? 'Inconnue'} kg',
-              style: TextStyle(
-                fontSize: 16,
-                color: _colors.textColor.withOpacity(0.7),
+              const SizedBox(height: 8),
+              Text(
+                'Masse : ${widget.bodyData['mass'] ?? 'Inconnue'} kg',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: _colors.textColorWhite.withOpacity(0.7),
+                ),
               ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Diamètre : ${widget.bodyData['radius'] ?? 'Inconnu'} km',
-              style: TextStyle(
-                fontSize: 16,
-                color: _colors.textColor.withOpacity(0.7),
+              const SizedBox(height: 8),
+              Text(
+                'Diamètre : ${widget.bodyData['radius'] ?? 'Inconnu'} km',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: _colors.textColorWhite.withOpacity(0.7),
+                ),
               ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Distance par rapport à la Terre : ${widget.bodyData['distance_from_earth'] ?? 'Inconnue'} km',
-              style: TextStyle(
-                fontSize: 16,
-                color: _colors.textColor.withOpacity(0.7),
+              const SizedBox(height: 8),
+              Text(
+                'Distance par rapport à la Terre : ${widget.bodyData['distance_from_earth'] ?? 'Inconnue'} km',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: _colors.textColorWhite.withOpacity(0.7),
+                ),
               ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Température : ${widget.bodyData['temperature'] ?? 'Inconnue'} K',
-              style: TextStyle(
-                fontSize: 16,
-                color: _colors.textColor.withOpacity(0.7),
+              const SizedBox(height: 8),
+              Text(
+                'Température : ${widget.bodyData['temperature'] ?? 'Inconnue'} K',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: _colors.textColorWhite.withOpacity(0.7),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: NavBar(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../pages/login_page.dart';
 import '../pages/home_page.dart';
-import '../pages/detail_page.dart';
+import '../pages/profile_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -18,7 +18,7 @@ class MainApp extends StatelessWidget {
       routes: {
         '/login': (context) => const LoginPage(),
         '/home': (context) => const HomePage(),
-        '/details': (context) => DetailPage(bodyData: {}), // Provide appropriate bodyData value
+        '/profile': (context) => const UserProfilePage(),
       },
     );
   }

@@ -90,6 +90,16 @@ class _CelestialBodyListState extends State<CelestialBodyList> {
                         )
                       : const Icon(Icons.public, size: 40),
                   title: Text(body['name'] ?? 'Nom inconnu'),
+                  trailing: IconButton(
+                    icon: const Icon(Icons.star_border, color: Colors.amber),
+                    tooltip: 'Ajouter aux favoris',
+                    onPressed: () async {
+                      await ApiService.addToFavorites(body['id']);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('${body['name']} ajouté aux favoris !')),
+                      );
+                    },
+                  ),
                   onTap: () {
                     Navigator.push(
                       context,
